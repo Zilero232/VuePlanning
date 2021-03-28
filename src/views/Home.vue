@@ -111,12 +111,12 @@ export default {
             await this.checkAdmin();
             await this.checkDate();
 
-            M.Tabs.init(this.$refs.tabs);
-
             if (localStorage.getItem('group')) {
                 this.group = await this.$store.dispatch('getPlanningGroup', localStorage.getItem('group'));
+                M.Tabs.init(this.$refs.tabs);
                 this.Loader = false;
             } else {
+                M.Tabs.init(this.$refs.tabs);
                 this.LoaderTable = false
                 this.isOpenGroup = true
             }
